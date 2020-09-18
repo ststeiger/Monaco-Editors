@@ -1,0 +1,1262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{5E04EB6A-EBD1-4B3C-AA62-53A74A907629}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Monaco_Editors</RootNamespace>
+    <AssemblyName>Monaco-Editors</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44378</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>4.0</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>Monaco-Editors.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>Monaco-Editors.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="monaco.htm" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\base\worker\workerMain.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\abap\abap.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\abap\abap.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\apex\apex.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\apex\apex.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\azcli\azcli.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\azcli\azcli.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\bat\bat.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\bat\bat.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\cameligo\cameligo.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\cameligo\cameligo.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\clojure\clojure.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\clojure\clojure.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\coffee\coffee.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\coffee\coffee.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\cpp\cpp.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\cpp\cpp.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\csharp\csharp.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\csharp\csharp.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\csp\csp.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\csp\csp.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\css\css.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\css\css.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\dockerfile\dockerfile.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\dockerfile\dockerfile.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\fsharp\fsharp.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\fsharp\fsharp.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\go\go.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\go\go.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\graphql\graphql.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\graphql\graphql.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\handlebars\handlebars.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\handlebars\handlebars.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\html\html.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\html\html.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\ini\ini.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\ini\ini.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\javascript\javascript.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\javascript\javascript.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\java\java.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\java\java.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\kotlin\kotlin.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\kotlin\kotlin.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\less\less.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\less\less.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\lua\lua.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\lua\lua.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\markdown\markdown.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\markdown\markdown.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\mips\mips.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\mips\mips.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\msdax\msdax.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\msdax\msdax.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\mysql\mysql.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\mysql\mysql.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\objective-c\objective-c.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\objective-c\objective-c.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\pascaligo\pascaligo.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\pascaligo\pascaligo.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\pascal\pascal.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\pascal\pascal.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\perl\perl.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\perl\perl.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\pgsql\pgsql.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\pgsql\pgsql.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\php\php.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\php\php.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\postiats\postiats.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\postiats\postiats.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\powerquery\powerquery.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\powerquery\powerquery.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\powershell\powershell.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\powershell\powershell.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\pug\pug.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\pug\pug.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\python\python.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\python\python.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\razor\razor.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\razor\razor.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\redis\redis.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\redis\redis.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\redshift\redshift.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\redshift\redshift.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\restructuredtext\restructuredtext.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\restructuredtext\restructuredtext.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\ruby\ruby.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\ruby\ruby.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\rust\rust.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\rust\rust.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\r\r.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\r\r.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\sb\sb.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\sb\sb.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\scheme\scheme.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\scheme\scheme.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\scss\scss.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\scss\scss.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\shell\shell.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\shell\shell.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\solidity\solidity.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\solidity\solidity.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\sophia\sophia.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\sophia\sophia.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\sql\sql.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\sql\sql.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\st\st.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\st\st.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\swift\swift.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\swift\swift.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\tcl\tcl.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\tcl\tcl.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\twig\twig.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\twig\twig.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\typescript\typescript.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\typescript\typescript.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\vb\vb.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\vb\vb.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\xml\xml.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\xml\xml.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\yaml\yaml.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\yaml\yaml.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\basic-languages\_.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\editor\editor.main.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\editor\editor.main.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\editor\editor.main.nls.de.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\editor\editor.main.nls.es.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\editor\editor.main.nls.fr.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\editor\editor.main.nls.it.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\editor\editor.main.nls.ja.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\editor\editor.main.nls.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\editor\editor.main.nls.ko.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\editor\editor.main.nls.ru.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\editor\editor.main.nls.zh-cn.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\editor\editor.main.nls.zh-tw.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\language\css\cssMode.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\language\css\cssWorker.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\language\html\htmlMode.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\language\html\htmlWorker.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\language\json\jsonMode.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\language\json\jsonWorker.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\language\typescript\languageFeatures.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\language\typescript\lib\lib.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\language\typescript\lib\typescriptServices.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\language\typescript\lib\typescriptServicesMetadata.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\language\typescript\ts.worker.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\language\typescript\tsMode.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\language\typescript\tsWorker.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\language\typescript\workerManager.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\loader.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\browser.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\canIUse.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\contextmenu.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\dnd.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\dom.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\event.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\fastDomNode.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\formattedTextRenderer.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\globalMouseMoveMonitor.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\history.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\iframe.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\keyboardEvent.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\markdownRenderer.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\mouseEvent.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\touch.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\actionbar\actionbar.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\actionbar\actionbar.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\aria\aria.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\aria\aria.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\checkbox\checkbox.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\checkbox\checkbox.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\codiconLabel\codiconLabel.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\codiconLabel\codicon\codicon-animations.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\codiconLabel\codicon\codicon.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\contextview\contextview.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\contextview\contextview.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\countBadge\countBadge.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\countBadge\countBadge.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\findinput\findInput.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\findinput\findInput.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\findinput\findInputCheckboxes.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\findinput\replaceInput.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\highlightedlabel\highlightedLabel.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\iconLabel\iconlabel.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\iconLabel\iconLabel.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\inputbox\inputBox.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\inputbox\inputBox.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\keybindingLabel\keybindingLabel.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\keybindingLabel\keybindingLabel.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\list\list.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\list\list.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\list\listPaging.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\list\listView.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\list\listWidget.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\list\rangeMap.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\list\rowCache.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\list\splice.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\menu\menu.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\menu\menu.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\progressbar\progressbar.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\progressbar\progressbar.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\sash\sash.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\sash\sash.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\scrollbar\abstractScrollbar.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\scrollbar\horizontalScrollbar.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\scrollbar\media\scrollbars.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\scrollbar\scrollableElement.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\scrollbar\scrollableElementOptions.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\scrollbar\scrollbarArrow.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\scrollbar\scrollbarState.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\scrollbar\scrollbarVisibilityController.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\scrollbar\verticalScrollbar.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\splitview\splitview.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\splitview\splitview.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\tree\abstractTree.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\tree\asyncDataTree.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\tree\compressedObjectTreeModel.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\tree\dataTree.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\tree\indexTreeModel.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\tree\media\tree.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\tree\objectTree.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\tree\objectTreeModel.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\tree\tree.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\widget.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\actions.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\arrays.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\assert.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\async.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\cancellation.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\charCode.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\codicons.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\collections.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\color.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\decorators.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\diff\diff.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\diff\diffChange.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\errors.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\event.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\extpath.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\filters.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\functional.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\glob.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\hash.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\history.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\htmlContent.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\idGenerator.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\insane\insane.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\iterator.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\jsonSchema.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\keybindingLabels.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\keyCodes.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\labels.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\lazy.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\lifecycle.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\linkedList.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\map.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\marked\marked.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\marshalling.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\mime.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\network.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\numbers.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\objects.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\paging.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\path.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\platform.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\process.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\range.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\resources.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\scrollable.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\search.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\sequence.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\severity.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\stopwatch.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\strings.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\styler.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\types.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\uint.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\uri.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\common\worker\simpleWorker.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\parts\quickopen\browser\quickopen.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\parts\quickopen\browser\quickOpenModel.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\parts\quickopen\browser\quickOpenViewer.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\parts\quickopen\browser\quickOpenWidget.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\parts\quickopen\common\quickOpen.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\parts\tree\browser\tree.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\parts\tree\browser\tree.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\parts\tree\browser\treeDefaults.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\parts\tree\browser\treeDnd.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\parts\tree\browser\treeImpl.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\parts\tree\browser\treeModel.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\parts\tree\browser\treeView.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\parts\tree\browser\treeViewModel.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\worker\defaultWorkerFactory.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\abap\abap.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\abap\abap.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\apex\apex.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\apex\apex.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\azcli\azcli.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\azcli\azcli.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\bat\bat.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\bat\bat.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\cameligo\cameligo.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\cameligo\cameligo.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\clojure\clojure.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\clojure\clojure.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\coffee\coffee.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\coffee\coffee.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\cpp\cpp.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\cpp\cpp.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\csharp\csharp.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\csharp\csharp.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\csp\csp.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\csp\csp.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\css\css.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\css\css.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\dockerfile\dockerfile.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\dockerfile\dockerfile.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\fsharp\fsharp.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\fsharp\fsharp.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\go\go.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\go\go.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\graphql\graphql.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\graphql\graphql.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\handlebars\handlebars.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\handlebars\handlebars.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\html\html.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\html\html.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\ini\ini.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\ini\ini.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\javascript\javascript.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\javascript\javascript.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\java\java.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\java\java.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\kotlin\kotlin.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\kotlin\kotlin.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\less\less.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\less\less.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\lua\lua.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\lua\lua.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\markdown\markdown.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\markdown\markdown.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\mips\mips.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\mips\mips.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\monaco.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\msdax\msdax.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\msdax\msdax.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\mysql\mysql.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\mysql\mysql.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\objective-c\objective-c.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\objective-c\objective-c.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\pascaligo\pascaligo.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\pascaligo\pascaligo.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\pascal\pascal.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\pascal\pascal.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\perl\perl.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\perl\perl.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\pgsql\pgsql.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\pgsql\pgsql.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\php\php.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\php\php.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\postiats\postiats.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\postiats\postiats.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\powerquery\powerquery.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\powerquery\powerquery.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\powershell\powershell.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\powershell\powershell.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\pug\pug.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\pug\pug.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\python\python.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\python\python.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\razor\razor.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\razor\razor.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\redis\redis.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\redis\redis.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\redshift\redshift.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\redshift\redshift.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\restructuredtext\restructuredtext.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\restructuredtext\restructuredtext.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\ruby\ruby.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\ruby\ruby.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\rust\rust.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\rust\rust.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\r\r.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\r\r.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\sb\sb.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\sb\sb.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\scheme\scheme.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\scheme\scheme.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\scss\scss.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\scss\scss.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\shell\shell.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\shell\shell.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\solidity\solidity.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\solidity\solidity.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\sophia\sophia.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\sophia\sophia.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\sql\sql.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\sql\sql.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\st\st.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\st\st.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\swift\swift.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\swift\swift.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\tcl\tcl.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\tcl\tcl.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\twig\twig.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\twig\twig.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\typescript\typescript.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\typescript\typescript.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\vb\vb.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\vb\vb.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\xml\xml.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\xml\xml.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\yaml\yaml.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\yaml\yaml.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\basic-languages\_.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\config\charWidthReader.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\config\configuration.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\config\elementSizeObserver.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\controller\coreCommands.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\controller\mouseHandler.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\controller\mouseTarget.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\controller\pointerHandler.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\controller\textAreaHandler.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\controller\textAreaHandler.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\controller\textAreaInput.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\controller\textAreaState.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\core\editorState.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\core\keybindingCancellation.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\editorBrowser.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\editorDom.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\editorExtensions.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\services\abstractCodeEditorService.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\services\bulkEditService.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\services\codeEditorService.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\services\codeEditorServiceImpl.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\services\openerService.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\contentWidgets\contentWidgets.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\currentLineHighlight\currentLineHighlight.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\currentLineHighlight\currentLineHighlight.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\decorations\decorations.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\decorations\decorations.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\editorScrollbar\editorScrollbar.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\glyphMargin\glyphMargin.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\glyphMargin\glyphMargin.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\indentGuides\indentGuides.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\indentGuides\indentGuides.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\lineNumbers\lineNumbers.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\lineNumbers\lineNumbers.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\linesDecorations\linesDecorations.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\linesDecorations\linesDecorations.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\lines\rangeUtil.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\lines\viewLine.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\lines\viewLines.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\lines\viewLines.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\marginDecorations\marginDecorations.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\marginDecorations\marginDecorations.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\margin\margin.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\minimap\minimap.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\minimap\minimap.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\minimap\minimapCharRenderer.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\minimap\minimapCharRendererFactory.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\minimap\minimapCharSheet.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\minimap\minimapPreBaked.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\overlayWidgets\overlayWidgets.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\overlayWidgets\overlayWidgets.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\overviewRuler\decorationsOverviewRuler.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\overviewRuler\overviewRuler.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\rulers\rulers.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\rulers\rulers.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\scrollDecoration\scrollDecoration.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\scrollDecoration\scrollDecoration.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\selections\selections.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\selections\selections.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\viewCursors\viewCursor.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\viewCursors\viewCursors.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\viewCursors\viewCursors.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\viewParts\viewZones\viewZones.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\view\domLineBreaksComputer.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\view\dynamicViewOverlay.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\view\viewController.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\view\viewImpl.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\view\viewLayer.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\view\viewOutgoingEvents.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\view\viewOverlays.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\view\viewPart.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\widget\codeEditorWidget.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\widget\diffEditorWidget.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\widget\diffNavigator.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\widget\diffReview.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\widget\embeddedCodeEditorWidget.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\widget\inlineDiffMargin.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\widget\media\diffEditor.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\widget\media\diffReview.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\browser\widget\media\editor.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\commands\replaceCommand.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\commands\shiftCommand.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\commands\surroundSelectionCommand.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\commands\trimTrailingWhitespaceCommand.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\config\commonEditorConfig.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\config\editorOptions.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\config\editorZoom.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\config\fontInfo.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\controller\cursor.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\controller\cursorCollection.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\controller\cursorColumnSelection.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\controller\cursorCommon.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\controller\cursorDeleteOperations.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\controller\cursorEvents.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\controller\cursorMoveCommands.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\controller\cursorMoveOperations.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\controller\cursorTypeOperations.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\controller\cursorWordOperations.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\controller\oneCursor.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\controller\wordCharacterClassifier.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\core\characterClassifier.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\core\editOperation.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\core\lineTokens.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\core\position.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\core\range.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\core\rgba.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\core\selection.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\core\stringBuilder.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\core\token.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\diff\diffComputer.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\editorAction.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\editorCommon.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\editorContextKeys.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\model.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\model\editStack.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\model\indentationGuesser.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\model\intervalTree.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\model\mirrorTextModel.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\model\pieceTreeTextBuffer\pieceTreeBase.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\model\pieceTreeTextBuffer\pieceTreeTextBuffer.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\model\pieceTreeTextBuffer\pieceTreeTextBufferBuilder.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\model\pieceTreeTextBuffer\rbTreeBase.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\model\textModel.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\model\textModelEvents.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\model\textModelSearch.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\model\textModelTokens.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\model\tokensStore.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\model\wordHelper.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\modes.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\modes\abstractMode.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\modes\languageConfiguration.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\modes\languageConfigurationRegistry.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\modes\languageFeatureRegistry.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\modes\languageSelector.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\modes\linkComputer.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\modes\modesRegistry.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\modes\nullMode.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\modes\supports.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\modes\supports\characterPair.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\modes\supports\electricCharacter.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\modes\supports\indentRules.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\modes\supports\inplaceReplaceSupport.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\modes\supports\onEnter.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\modes\supports\richEditBrackets.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\modes\supports\tokenization.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\modes\textToHtmlTokenizer.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\modes\tokenizationRegistry.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\services\editorSimpleWorker.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\services\editorWorkerService.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\services\editorWorkerServiceImpl.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\services\getIconClasses.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\services\languagesRegistry.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\services\markerDecorationsServiceImpl.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\services\markersDecorationService.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\services\modelService.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\services\modelServiceImpl.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\services\modeService.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\services\modeServiceImpl.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\services\resolverService.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\services\textResourceConfigurationService.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\services\webWorker.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\standaloneStrings.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\standalone\promise-polyfill\polyfill.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\standalone\standaloneBase.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\standalone\standaloneEnums.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\viewLayout\lineDecorations.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\viewLayout\linesLayout.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\viewLayout\viewLayout.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\viewLayout\viewLineRenderer.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\viewLayout\viewLinesViewportData.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\viewModel\minimapTokensColorTracker.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\viewModel\monospaceLineBreaksComputer.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\viewModel\prefixSumComputer.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\viewModel\splitLinesCollection.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\viewModel\viewEventHandler.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\viewModel\viewModel.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\viewModel\viewModelDecorations.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\viewModel\viewModelImpl.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\view\editorColorRegistry.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\view\overviewZoneManager.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\view\renderingContext.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\view\viewContext.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\view\viewEventDispatcher.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\common\view\viewEvents.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\bracketMatching\bracketMatching.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\bracketMatching\bracketMatching.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\caretOperations\caretOperations.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\caretOperations\moveCaretCommand.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\caretOperations\transpose.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\clipboard\clipboard.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\clipboard\clipboard.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\codeAction\codeAction.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\codeAction\codeActionCommands.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\codeAction\codeActionContributions.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\codeAction\codeActionMenu.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\codeAction\codeActionModel.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\codeAction\codeActionUi.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\codeAction\lightBulbWidget.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\codeAction\lightBulbWidget.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\codeAction\types.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\codelens\codelens.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\codelens\codeLensCache.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\codelens\codelensController.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\codelens\codelensWidget.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\codelens\codelensWidget.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\colorPicker\color.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\colorPicker\colorDetector.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\colorPicker\colorPicker.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\colorPicker\colorPickerModel.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\colorPicker\colorPickerWidget.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\comment\blockCommentCommand.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\comment\comment.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\comment\lineCommentCommand.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\contextmenu\contextmenu.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\cursorUndo\cursorUndo.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\dnd\dnd.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\dnd\dnd.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\dnd\dragAndDropCommand.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\documentSymbols\media\outlineTree.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\documentSymbols\media\symbol-icons.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\documentSymbols\outlineModel.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\documentSymbols\outlineTree.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\find\findController.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\find\findDecorations.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\find\findModel.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\find\findOptionsWidget.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\find\findState.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\find\findWidget.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\find\findWidget.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\find\replaceAllCommand.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\find\replacePattern.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\folding\folding.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\folding\folding.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\folding\foldingDecorations.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\folding\foldingModel.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\folding\foldingRanges.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\folding\hiddenRangeModel.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\folding\indentRangeProvider.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\folding\intializingRangeProvider.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\folding\syntaxRangeProvider.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\fontZoom\fontZoom.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\format\format.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\format\formatActions.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\format\formattingEdit.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\gotoError\gotoError.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\gotoError\gotoErrorWidget.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\gotoError\media\gotoErrorWidget.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\gotoSymbol\goToCommands.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\gotoSymbol\goToSymbol.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\gotoSymbol\link\clickLinkGesture.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\gotoSymbol\link\goToDefinitionAtPosition.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\gotoSymbol\link\goToDefinitionAtPosition.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\gotoSymbol\peek\referencesController.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\gotoSymbol\peek\referencesTree.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\gotoSymbol\peek\referencesWidget.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\gotoSymbol\peek\referencesWidget.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\gotoSymbol\referencesModel.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\gotoSymbol\symbolNavigation.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\hover\getHover.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\hover\hover.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\hover\hover.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\hover\hoverOperation.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\hover\hoverWidgets.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\hover\modesContentHover.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\hover\modesGlyphHover.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\indentation\indentUtils.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\inPlaceReplace\inPlaceReplace.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\inPlaceReplace\inPlaceReplaceCommand.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\linesOperations\copyLinesCommand.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\linesOperations\linesOperations.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\linesOperations\moveLinesCommand.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\linesOperations\sortLinesCommand.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\links\getLinks.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\links\links.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\links\links.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\markdown\markdownRenderer.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\message\messageController.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\message\messageController.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\multicursor\multicursor.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\parameterHints\parameterHints.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\parameterHints\parameterHints.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\parameterHints\parameterHintsModel.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\parameterHints\parameterHintsWidget.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\parameterHints\provideSignatureHelp.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\peekView\media\peekViewWidget.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\peekView\peekView.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\quickOpen\quickOpen.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\rename\rename.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\rename\renameInputField.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\rename\renameInputField.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\smartSelect\bracketSelections.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\smartSelect\smartSelect.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\smartSelect\wordSelections.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\snippet\snippetController2.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\snippet\snippetParser.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\snippet\snippetSession.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\snippet\snippetSession.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\snippet\snippetVariables.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\suggest\completionModel.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\suggest\media\suggest.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\suggest\media\suggestStatusBar.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\suggest\suggest.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\suggest\suggestAlternatives.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\suggest\suggestCommitCharacters.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\suggest\suggestController.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\suggest\suggestMemory.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\suggest\suggestModel.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\suggest\suggestRangeHighlighter.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\suggest\suggestWidget.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\suggest\wordContextKey.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\suggest\wordDistance.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\toggleTabFocusMode\toggleTabFocusMode.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\tokenization\tokenization.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\wordHighlighter\wordHighlighter.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\wordOperations\wordOperations.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\wordPartOperations\wordPartOperations.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\zoneWidget\zoneWidget.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\contrib\zoneWidget\zoneWidget.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\edcore.main.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\editor.all.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\editor.api.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\editor.main.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\editor.worker.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\browser\accessibilityHelp\accessibilityHelp.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\browser\accessibilityHelp\accessibilityHelp.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\browser\colorizer.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\browser\inspectTokens\inspectTokens.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\browser\inspectTokens\inspectTokens.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\browser\iPadShowKeyboard\iPadShowKeyboard.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\browser\iPadShowKeyboard\iPadShowKeyboard.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\browser\quickOpen\editorQuickOpen.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\browser\quickOpen\editorQuickOpen.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\browser\quickOpen\gotoLine.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\browser\quickOpen\gotoLine.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\browser\quickOpen\quickCommand.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\browser\quickOpen\quickOpenEditorWidget.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\browser\quickOpen\quickOutline.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\browser\quickOpen\quickOutline.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\browser\referenceSearch\standaloneReferenceSearch.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\browser\simpleServices.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\browser\standalone-tokens.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\browser\standaloneCodeEditor.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\browser\standaloneCodeServiceImpl.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\browser\standaloneEditor.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\browser\standaloneLanguages.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\browser\standaloneServices.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\browser\standaloneThemeServiceImpl.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\browser\toggleHighContrast\toggleHighContrast.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\common\monarch\monarchCommon.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\common\monarch\monarchCompile.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\common\monarch\monarchLexer.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\common\monarch\monarchTypes.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\common\standaloneThemeService.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\editor\standalone\common\themes.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\css.worker.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\cssMode.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\cssWorker.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\fillers\vscode-nls.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\languageFeatures.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\monaco.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\workerManager.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\cssLanguageService.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\cssLanguageTypes.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\data\webCustomData.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\languageFacts\builtinData.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\languageFacts\colors.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\languageFacts\dataManager.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\languageFacts\dataProvider.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\languageFacts\entry.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\languageFacts\facts.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\parser\cssErrors.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\parser\cssNodes.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\parser\cssParser.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\parser\cssScanner.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\parser\cssSymbolScope.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\parser\lessParser.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\parser\lessScanner.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\parser\scssErrors.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\parser\scssParser.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\parser\scssScanner.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\services\cssCodeActions.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\services\cssCompletion.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\services\cssFolding.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\services\cssHover.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\services\cssNavigation.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\services\cssSelectionRange.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\services\cssValidation.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\services\lessCompletion.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\services\lint.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\services\lintRules.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\services\lintUtil.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\services\scssCompletion.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\services\scssNavigation.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\services\selectorPrinting.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\utils\arrays.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\utils\objects.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\utils\strings.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-css-languageservice\_deps\vscode-languageserver-textdocument\lib\esm\main.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-languageserver-types\main.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\css\_deps\vscode-uri\index.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\fillers\polyfills.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\fillers\vscode-nls.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\html.worker.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\htmlMode.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\htmlWorker.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\languageFeatures.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\monaco.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\workerManager.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-html-languageservice\beautify\beautify-css.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-html-languageservice\beautify\beautify-html.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-html-languageservice\beautify\beautify.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-html-languageservice\htmlLanguageService.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-html-languageservice\htmlLanguageTypes.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-html-languageservice\languageFacts\builtinDataProviders.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-html-languageservice\languageFacts\dataProvider.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-html-languageservice\languageFacts\data\webCustomData.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-html-languageservice\languageFacts\fact.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-html-languageservice\parser\htmlEntities.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-html-languageservice\parser\htmlParser.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-html-languageservice\parser\htmlScanner.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-html-languageservice\services\htmlCompletion.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-html-languageservice\services\htmlFolding.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-html-languageservice\services\htmlFormatter.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-html-languageservice\services\htmlHighlighting.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-html-languageservice\services\htmlHover.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-html-languageservice\services\htmlLinks.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-html-languageservice\services\htmlMatchingTagPosition.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-html-languageservice\services\htmlRename.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-html-languageservice\services\htmlSelectionRange.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-html-languageservice\services\htmlSymbolsProvider.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-html-languageservice\utils\arrays.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-html-languageservice\utils\markup.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-html-languageservice\utils\object.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-html-languageservice\utils\strings.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-html-languageservice\_deps\vscode-languageserver-types\main.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-languageserver-textdocument\lib\esm\main.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\html\_deps\vscode-uri\index.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\fillers\vscode-nls.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\json.worker.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\jsonMode.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\jsonWorker.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\languageFeatures.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\monaco.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\tokenization.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\workerManager.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\_deps\jsonc-parser\impl\edit.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\_deps\jsonc-parser\impl\format.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\_deps\jsonc-parser\impl\parser.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\_deps\jsonc-parser\impl\scanner.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\_deps\jsonc-parser\main.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\_deps\vscode-json-languageservice\jsonLanguageService.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\_deps\vscode-json-languageservice\jsonLanguageTypes.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\_deps\vscode-json-languageservice\parser\jsonParser.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\_deps\vscode-json-languageservice\services\configuration.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\_deps\vscode-json-languageservice\services\jsonCompletion.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\_deps\vscode-json-languageservice\services\jsonDocumentSymbols.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\_deps\vscode-json-languageservice\services\jsonFolding.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\_deps\vscode-json-languageservice\services\jsonHover.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\_deps\vscode-json-languageservice\services\jsonSchemaService.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\_deps\vscode-json-languageservice\services\jsonSelectionRanges.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\_deps\vscode-json-languageservice\services\jsonValidation.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\_deps\vscode-json-languageservice\utils\colors.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\_deps\vscode-json-languageservice\utils\json.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\_deps\vscode-json-languageservice\utils\objects.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\_deps\vscode-json-languageservice\utils\strings.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\_deps\vscode-languageserver-textdocument\lib\esm\main.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\_deps\vscode-languageserver-types\main.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\json\_deps\vscode-uri\index.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\typescript\languageFeatures.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\typescript\lib\lib.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\typescript\lib\typescriptServices.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\typescript\lib\typescriptServicesMetadata.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\typescript\monaco.contribution.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\typescript\ts.worker.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\typescript\tsMode.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\typescript\tsWorker.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\language\typescript\workerManager.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\nls.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\accessibility\common\accessibility.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\accessibility\common\accessibilityService.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\actions\common\actions.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\actions\common\menuService.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\browser\contextScopedHistoryWidget.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\clipboard\common\clipboardService.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\commands\common\commands.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\configuration\common\configuration.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\configuration\common\configurationModels.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\configuration\common\configurationRegistry.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\contextkey\browser\contextKeyService.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\contextkey\common\contextkey.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\contextkey\common\contextkeys.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\contextview\browser\contextMenuHandler.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\contextview\browser\contextMenuHandler.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\contextview\browser\contextMenuService.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\contextview\browser\contextView.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\contextview\browser\contextViewService.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\dialogs\common\dialogs.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\editor\common\editor.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\environment\common\environment.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\extensions\common\extensions.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\files\common\files.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\instantiation\common\descriptors.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\instantiation\common\extensions.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\instantiation\common\graph.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\instantiation\common\instantiation.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\instantiation\common\instantiationService.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\instantiation\common\serviceCollection.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\jsonschemas\common\jsonContributionRegistry.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\keybinding\common\abstractKeybindingService.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\keybinding\common\baseResolvedKeybinding.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\keybinding\common\keybinding.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\keybinding\common\keybindingResolver.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\keybinding\common\keybindingsRegistry.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\keybinding\common\resolvedKeybindingItem.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\keybinding\common\usLayoutResolvedKeybinding.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\label\common\label.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\layout\browser\layoutService.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\list\browser\listService.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\log\common\log.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\markers\common\markers.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\markers\common\markerService.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\notification\common\notification.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\opener\common\opener.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\progress\common\progress.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\registry\common\platform.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\severityIcon\common\severityIcon.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\storage\common\storage.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\telemetry\common\gdprTypings.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\telemetry\common\telemetry.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\theme\common\colorRegistry.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\theme\common\styler.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\theme\common\themeService.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\workspaces\common\workspaces.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\platform\workspace\common\workspace.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\base\worker\workerMain.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\abap\abap.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\apex\apex.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\azcli\azcli.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\bat\bat.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\cameligo\cameligo.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\clojure\clojure.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\coffee\coffee.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\cpp\cpp.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\csharp\csharp.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\csp\csp.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\css\css.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\dockerfile\dockerfile.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\fsharp\fsharp.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\go\go.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\graphql\graphql.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\handlebars\handlebars.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\html\html.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\ini\ini.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\javascript\javascript.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\java\java.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\kotlin\kotlin.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\less\less.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\lua\lua.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\markdown\markdown.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\mips\mips.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\msdax\msdax.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\mysql\mysql.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\objective-c\objective-c.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\pascaligo\pascaligo.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\pascal\pascal.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\perl\perl.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\pgsql\pgsql.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\php\php.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\postiats\postiats.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\powerquery\powerquery.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\powershell\powershell.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\pug\pug.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\python\python.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\razor\razor.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\redis\redis.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\redshift\redshift.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\restructuredtext\restructuredtext.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\ruby\ruby.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\rust\rust.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\r\r.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\sb\sb.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\scheme\scheme.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\scss\scss.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\shell\shell.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\solidity\solidity.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\sophia\sophia.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\sql\sql.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\st\st.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\swift\swift.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\tcl\tcl.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\twig\twig.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\typescript\typescript.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\vb\vb.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\xml\xml.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\basic-languages\yaml\yaml.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\editor\editor.main.css" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\editor\editor.main.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\editor\editor.main.nls.de.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\editor\editor.main.nls.es.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\editor\editor.main.nls.fr.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\editor\editor.main.nls.it.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\editor\editor.main.nls.ja.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\editor\editor.main.nls.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\editor\editor.main.nls.ko.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\editor\editor.main.nls.ru.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\editor\editor.main.nls.zh-cn.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\editor\editor.main.nls.zh-tw.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\language\css\cssMode.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\language\css\cssWorker.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\language\html\htmlMode.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\language\html\htmlWorker.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\language\json\jsonMode.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\language\json\jsonWorker.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\language\typescript\tsMode.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\language\typescript\tsWorker.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\loader.js" />
+    <Content Include="monaco\monaco-editor-0.20.0\ThirdPartyNotices.txt" />
+    <Content Include="monaco\Monaco-Editor.txt" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\MyExtensions\MyWebExtension.vb">
+      <VBMyExtensionTemplateID>Microsoft.VisualBasic.Web.MyExtension</VBMyExtensionTemplateID>
+      <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="monaco\monaco-editor-0.20.0\CHANGELOG.md" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\bundleInfo.json" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\nls.metadata.json" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\base\browser\ui\codiconLabel\codicon\codicon.ttf" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\base\worker\workerMain.js.map" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\editor\editor.main.js.map" />
+    <Content Include="monaco\monaco-editor-0.20.0\dev\vs\loader.js.map" />
+    <Content Include="monaco\monaco-editor-0.20.0\esm\vs\base\browser\ui\codiconLabel\codicon\codicon.ttf" />
+    <Content Include="monaco\monaco-editor-0.20.0\LICENSE" />
+    <Content Include="monaco\monaco-editor-0.20.0\min-maps\vs\base\worker\workerMain.js.map" />
+    <Content Include="monaco\monaco-editor-0.20.0\min-maps\vs\editor\editor.main.js.map" />
+    <Content Include="monaco\monaco-editor-0.20.0\min-maps\vs\editor\editor.main.nls.de.js.map" />
+    <Content Include="monaco\monaco-editor-0.20.0\min-maps\vs\editor\editor.main.nls.es.js.map" />
+    <Content Include="monaco\monaco-editor-0.20.0\min-maps\vs\editor\editor.main.nls.fr.js.map" />
+    <Content Include="monaco\monaco-editor-0.20.0\min-maps\vs\editor\editor.main.nls.it.js.map" />
+    <Content Include="monaco\monaco-editor-0.20.0\min-maps\vs\editor\editor.main.nls.ja.js.map" />
+    <Content Include="monaco\monaco-editor-0.20.0\min-maps\vs\editor\editor.main.nls.js.map" />
+    <Content Include="monaco\monaco-editor-0.20.0\min-maps\vs\editor\editor.main.nls.ko.js.map" />
+    <Content Include="monaco\monaco-editor-0.20.0\min-maps\vs\editor\editor.main.nls.ru.js.map" />
+    <Content Include="monaco\monaco-editor-0.20.0\min-maps\vs\editor\editor.main.nls.zh-cn.js.map" />
+    <Content Include="monaco\monaco-editor-0.20.0\min-maps\vs\editor\editor.main.nls.zh-tw.js.map" />
+    <Content Include="monaco\monaco-editor-0.20.0\min-maps\vs\loader.js.map" />
+    <Content Include="monaco\monaco-editor-0.20.0\min\vs\base\browser\ui\codiconLabel\codicon\codicon.ttf" />
+    <Content Include="monaco\monaco-editor-0.20.0\package.json" />
+    <Content Include="monaco\monaco-editor-0.20.0\README.md" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="TypeScript\main.ts" />
+    <Content Include="TypeScript\editor.api.d.ts_global.txt" />
+    <TypeScriptCompile Include="TypeScript\monaco.d.ts" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59237</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44378/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Dieses Projekt verweist auf mindestens ein NuGet-Paket, das auf diesem Computer fehlt. Verwenden Sie die Wiederherstellung von NuGet-Paketen, um die fehlenden Dateien herunterzuladen. Weitere Informationen finden Sie unter "http://go.microsoft.com/fwlink/?LinkID=322105". Die fehlende Datei ist "{0}".</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
